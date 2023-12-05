@@ -1,0 +1,18 @@
+import { createCdkStack, createComplianceTags } from "@services/cdk";
+import { App } from "aws-cdk-lib";
+import { <%= className %>Stack } from "../cdk/stacks/<%= projectName %>";
+
+const app = new App();
+
+const tags = {
+  "tags.courier.com/service": "<%= projectName %>",
+  ...createComplianceTags({
+    description: "PLEASE WRITE A DESCRIPTION ...",
+  }),
+};
+
+createCdkStack(app, "api", <%= className %>Stack, {
+  tags,
+});
+
+app.synth();

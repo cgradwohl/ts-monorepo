@@ -1,0 +1,8 @@
+{
+  "name": "@services/cdk",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "devDependencies": {},
+  "dependencies": {}
+}

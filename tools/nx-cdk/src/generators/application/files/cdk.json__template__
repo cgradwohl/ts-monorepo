@@ -1,0 +1,17 @@
+{
+  "app": "npx ts-node --require tsconfig-paths/register --prefer-ts-exts -P tsconfig.app.json bin/app.ts",
+  "context": {
+    "dev": {},
+    "staging": {
+      "logs": {
+        "retentionDays": 30
+      }
+    },
+    "production": {
+      "logs": {
+        "retentionDays": 365,
+        "retentionPolicy": "retain"
+      }
+    }
+  }
+}

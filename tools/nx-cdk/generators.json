@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "application": {
+      "factory": "./src/generators/application/generator",
+      "schema": "./src/generators/application/schema.json",
+      "description": "CDK application generator"
+    },
+    "app": {
+      "factory": "./src/generators/application/generator",
+      "schema": "./src/generators/application/schema.json",
+      "description": "CDK application generator"
+    }
+  }
+}

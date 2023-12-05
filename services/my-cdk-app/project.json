@@ -1,0 +1,50 @@
+{
+  "name": "my-cdk-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "services/my-cdk-app",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/services/my-cdk-app",
+        "main": "services/my-cdk-app/bin/app.ts",
+        "tsConfig": "services/my-cdk-app/tsconfig.app.json",
+        "generatePackageJson": true
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["synth"],
+      "options": {
+        "cwd": "services/my-cdk-app",
+        "commands": ["cdk deploy --require-approval never --output cdk.out"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["services/my-cdk-app/**/*.ts"]
+      }
+    },
+    "synth": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "services/my-cdk-app",
+        "commands": ["cdk synth --output cdk.out"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "services/my-cdk-app/jest.config.ts",
+        "passWithNoTests": true,
+        "codeCoverage": true
+      }
+    }
+  },
+  "tags": []
+}

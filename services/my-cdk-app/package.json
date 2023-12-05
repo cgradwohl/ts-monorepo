@@ -1,0 +1,11 @@
+{
+  "name": "@courier/my-cdk-app",
+  "version": "1.0.0",
+  "description": "PLEASE ADD A DESCRIPTION ...",
+  "private": true,
+  "scripts": {},
+  "author": "Courier Engineering <engineering@courier.com>",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {}
+}
