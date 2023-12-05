@@ -20,4 +20,3 @@
   },
   "exclude": ["tmp", "node_modules", "cdk.out"]
 }
-
